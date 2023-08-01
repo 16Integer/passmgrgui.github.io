@@ -83,6 +83,33 @@
         background-color: royalblue;
       }
 
+      input[type="email"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        background-color: #333333;
+      }
+
+      input[type="message"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        background-color: #333333;
+      }
+
+      button[type="submit"] {
+        background-color: royalblue;
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: large;
+        font-weight: bold;
+        color: white;
+        border: none;
+        width: 10%;
+        height: 30px;
+      }
+
       main {
         background-color: #0f0f0ff4;
         color: white;
@@ -104,21 +131,22 @@
 
     <main>
       <h1 class="title">Contact Page</h1>
-      <div class="download_win_frame">
-        <a class="download_win" href="images/profile_pic.jpg" download
-          >Download for Windows</a
-        >
-      </div>
-      <div class="download_lin_frame">
-        <a class="download_lin" href="images/profile_pic.jpg" download
-          >Download for Linux</a
-        >
-      </div>
-      <div class="download_mac_frame">
-        <a class="download_mac" href="images/profile_pic.jpg" download
-          >Download for MacOS</a
-        >
-      </div>
+      <form
+        class="contact"
+        action="https://formspree.io/f/mleyglgp"
+        method="POST"
+      >
+        <label class="email_label">
+          Your email:
+        </label>
+          <input type="email" id="email" name="email" />
+        <label class="email_label">
+          Your message:
+        </label>
+          <input type="message" id="message" name="message"></input>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+      </form>
     </main>
   </body>
 </html>
