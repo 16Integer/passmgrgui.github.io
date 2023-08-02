@@ -34,61 +34,25 @@
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         font-size: 37.5px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         color: white;
         padding-top: 50px;
         text-align: center; /* Center the title */
       }
 
-      .download_win {
-        background-color: DodgerBlue;
-        border: none;
-        color: white;
-        padding: 12px 30px;
-        font-size: 20px;
-        text-decoration: none;
-        font-family: "Roboto", "Arial", sans-serif;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .download_lin {
-        background-color: DodgerBlue;
-        border: none;
-        color: white;
-        padding: 12px 30px;
-        font-size: 20px;
-        text-decoration: none;
-        font-family: "Roboto", "Arial", sans-serif;
-        position: absolute;
-        left: 25%;
-        transform: translateX(-50%);
-      }
-
-      .download_mac {
-        background-color: DodgerBlue;
-        border: none;
-        color: white;
-        padding: 12px 30px;
-        font-size: 20px;
-        text-decoration: none;
-        font-family: "Roboto", "Arial", sans-serif;
-        position: absolute;
-        left: 75%;
-        transform: translateX(-50%);
-      }
-
-      .download:hover {
-        background-color: royalblue;
-      }
 
       input[type="email"] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
+        border-width: 0;
         background-color: #333333;
+        color:white;
+        margin-bottom: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        
       }
 
       input[type="message"] {
@@ -96,18 +60,33 @@
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
+        border-width: 0;
         background-color: #333333;
+        color:white;
+        margin-bottom: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
       }
 
       button[type="submit"] {
         background-color: royalblue;
-        font-family: "Roboto", "Arial", sans-serif;
-        font-size: large;
-        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
         color: white;
         border: none;
-        width: 10%;
-        height: 30px;
+        width: 30%;
+        height: 40px;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+      }
+
+      .contact {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       main {
@@ -115,11 +94,32 @@
         color: white;
         min-height: 100vh;
       }
+
+      .email_label {
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: large;
+        bottom: 150px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+      }
+
+      .message_label {
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: large;
+        bottom: 70px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+      }
+
     </style>
   </head>
   <body>
     <div class="menubar">
-      <a class="menu-item" href="index.html">Home</a>
+      <a class="menu-item" href="/">Home</a>
       <a class="menu-item" href="#">About</a>
       <a class="menu-item" href="contact.html">Contact</a>
       <a
@@ -139,12 +139,11 @@
         <label class="email_label">
           Your email:
         </label>
-          <input type="email" id="email" name="email" />
-        <label class="email_label">
+          <input required type="email" id="email" name="email" />
+        <label class="message_label">
           Your message:
         </label>
-          <input type="message" id="message" name="message"></input>
-        <!-- your other form fields go here -->
+          <input required type="message" id="message" name="message"></input>
         <button type="submit">Send</button>
       </form>
     </main>

@@ -43,9 +43,14 @@
         text-align: center; /* Center the title */
       }
 
+      .download_frame {
+        background-color: white !important;
+      }
+
       .download_win {
         background-color: DodgerBlue;
-        border: none;
+        border: 3px solid rgba(255, 255, 255, 0.678) !important;
+        border-radius: 5px;
         color: white;
         padding: 12px 30px;
         font-size: 20px;
@@ -58,7 +63,8 @@
 
       .download_lin {
         background-color: DodgerBlue;
-        border: none;
+        border: 3px solid rgba(255, 255, 255, 0.678) !important;
+        border-radius: 5px;
         color: white;
         padding: 12px 30px;
         font-size: 20px;
@@ -71,7 +77,8 @@
 
       .download_mac {
         background-color: DodgerBlue;
-        border: none;
+        border: 3px solid rgba(255, 255, 255, 0.678) !important;
+        border-radius: 5px;
         color: white;
         padding: 12px 30px;
         font-size: 20px;
@@ -82,14 +89,22 @@
         transform: translateX(-50%);
       }
 
-      .download:hover {
-        background-color: royalblue;
-      }
-
       main {
         background-color: #0f0f0ff4;
         color: white;
         min-height: 100vh;
+      }
+
+      .download_win:hover {
+        opacity: 80%;
+      }
+
+      .download_lin:hover {
+        opacity: 80%;
+      }
+
+      .download_mac:hover {
+        opacity: 80%;
       }
     </style>
   </head>
@@ -107,17 +122,13 @@
 
     <main>
       <h1 class="title">Password Manager</h1>
-      <div class="download_win_frame">
+      <div class="download_frame">
         <a class="download_win" href="images/profile_pic.jpg" download
           >Download for Windows</a
         >
-      </div>
-      <div class="download_lin_frame">
         <a class="download_lin" href="images/profile_pic.jpg" download
           >Download for Linux</a
         >
-      </div>
-      <div class="download_mac_frame">
         <a class="download_mac" href="images/profile_pic.jpg" download
           >Download for MacOS</a
         >
