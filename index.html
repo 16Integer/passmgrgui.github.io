@@ -14,6 +14,12 @@
         overflow: hidden;
       }
 
+      main {
+        background-color: #0f0f0ff4;
+        color: white;
+        min-height: 100vh;
+      }
+
       .menubar {
         position: fixed;
         top: 0;
@@ -44,7 +50,7 @@
       }
 
       .download_frame {
-        background-color: white !important;
+        background-color: #333;
       }
 
       .download_win {
@@ -89,10 +95,12 @@
         transform: translateX(-50%);
       }
 
-      main {
-        background-color: #0f0f0ff4;
-        color: white;
-        min-height: 100vh;
+      .linux_img {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 12%;
+        bottom: 560px;
       }
 
       .download_win:hover {
@@ -129,6 +137,7 @@
         <a class="download_lin" href="images/profile_pic.jpg" download
           >Download for Linux</a
         >
+        <img class="linux_img" src="/images/linuxcolor.png" />
         <a class="download_mac" href="images/profile_pic.jpg" download
           >Download for MacOS</a
         >
