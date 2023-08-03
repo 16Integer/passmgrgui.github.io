@@ -12,6 +12,7 @@
       body {
         margin: 0;
         overflow: hidden;
+        font-family: Arial, sans-serif;
       }
 
       main {
@@ -33,86 +34,61 @@
       .menu-item {
         display: inline-block;
         margin: 0 10px;
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
         color: white;
         text-decoration: none;
       }
 
       .title {
-        font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         font-size: 37.5px;
-        margin-bottom: 20px;
         color: white;
         padding-top: 50px;
-        text-align: center; /* Center the title */
+        text-align: center;
       }
 
       .download_frame {
-        background-color: #333;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 600px;
+        margin-top: 10px;
       }
 
-      .download_win {
+      .download_button {
         background-color: DodgerBlue;
-        border: 3px solid rgba(255, 255, 255, 0.678) !important;
+        border: 3px solid rgba(255, 255, 255, 0.678);
         border-radius: 5px;
         color: white;
         padding: 12px 30px;
-        font-size: 20px;
+        font-size: 25px;
         text-decoration: none;
-        font-family: "Roboto", "Arial", sans-serif;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        margin: 10px;
+        text-align: center;
+        width: 180px; /* Add a fixed width for all buttons */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .download_lin {
-        background-color: DodgerBlue;
-        border: 3px solid rgba(255, 255, 255, 0.678) !important;
-        border-radius: 5px;
+      .platform_img {
+        max-width: 75px;
+        max-height: 75px;
+        margin-top: 10px;
+      }
+
+      .download_button:hover {
+        opacity: 0.8;
+      }
+
+      .txt {
+        font-size: 20.5px;
+        margin-bottom: 10px;
         color: white;
-        padding: 12px 30px;
-        font-size: 20px;
-        text-decoration: none;
-        font-family: "Roboto", "Arial", sans-serif;
-        position: absolute;
-        left: 25%;
-        transform: translateX(-50%);
-      }
-
-      .download_mac {
-        background-color: DodgerBlue;
-        border: 3px solid rgba(255, 255, 255, 0.678) !important;
-        border-radius: 5px;
-        color: white;
-        padding: 12px 30px;
-        font-size: 20px;
-        text-decoration: none;
-        font-family: "Roboto", "Arial", sans-serif;
-        position: absolute;
-        left: 75%;
-        transform: translateX(-50%);
-      }
-
-      .linux_img {
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        left: 12%;
-        bottom: 560px;
-      }
-
-      .download_win:hover {
-        opacity: 80%;
-      }
-
-      .download_lin:hover {
-        opacity: 80%;
-      }
-
-      .download_mac:hover {
-        opacity: 80%;
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
       }
     </style>
   </head>
@@ -130,17 +106,30 @@
 
     <main>
       <h1 class="title">Password Manager</h1>
+      <p class="txt">
+        The Password Manager program includes download options for Windows,
+        Debian (and its derivatives), and MacOS. For the source code, click
+        here.
+      </p>
       <div class="download_frame">
-        <a class="download_win" href="images/profile_pic.jpg" download
-          >Download for Windows</a
-        >
-        <a class="download_lin" href="images/profile_pic.jpg" download
-          >Download for Linux</a
-        >
-        <img class="linux_img" src="/images/linuxcolor.png" />
-        <a class="download_mac" href="images/profile_pic.jpg" download
-          >Download for MacOS</a
-        >
+        <a class="download_button" href="images/linux.png" download>
+          <img class="platform_img" src="images/debian.png" alt="Debian Logo" />
+          Linux
+        </a>
+
+        <a class="download_button" href="images/macos.png" download>
+          <img class="platform_img" src="images/macos.png" alt="MacOS Logo" />
+          MacOS
+        </a>
+
+        <a class="download_button" href="images/windows.png" download>
+          <img
+            class="platform_img"
+            src="images/windows.png"
+            alt="Windows Logo"
+          />
+          Windows
+        </a>
       </div>
     </main>
   </body>
