@@ -11,8 +11,18 @@
     <style>
       body {
         margin: 0;
-        overflow: hidden;
         font-family: Arial, sans-serif;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
       }
 
       main {
@@ -90,13 +100,24 @@
         max-width: 500px;
         margin: auto;
       }
+
+      .link {
+        color: inherit; /* Inherits text color from its parent element */
+        font-size: inherit; /* Inherits font size from its parent element */
+        font-weight: bold;
+      }
+
+      .subheading {
+        text-align: center;
+        font-size: 28px;
+      }
     </style>
   </head>
   <body>
     <div class="menubar">
       <a class="menu-item" href="#">Home</a>
       <a class="menu-item" href="#">About</a>
-      <a class="menu-item" href="contact.html">Contact</a>
+      <a class="menu-item" href="contact">Contact</a>
       <a
         class="menu-item"
         href="https://github.com/passmgrgui/passwordgenerator"
@@ -108,17 +129,20 @@
       <h1 class="title">Password Manager</h1>
       <p class="txt">
         The Password Manager program includes download options for Windows,
-        Debian (and its derivatives), and MacOS. For the source code, click
-        here.
+        Linux (deb, rpm) and MacOS. For the source code, click
+        <a class="link" href="https://github.com/passmgrgui/passwordgenerator"
+          >here.</a
+        >
       </p>
+      <h2 class="subheading">Downloads</h2>
       <div class="download_frame">
         <a class="download_button" href="images/linux.png" download>
-          <img class="platform_img" src="images/debian.png" alt="Debian Logo" />
+          <img class="platform_img" src="images/Tux.png" alt="Debian Logo" />
           Linux
         </a>
 
         <a class="download_button" href="images/macos.png" download>
-          <img class="platform_img" src="images/macos.png" alt="MacOS Logo" />
+          <img class="platform_img" src="images/apple.png" alt="MacOS Logo" />
           MacOS
         </a>
 

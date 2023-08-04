@@ -41,32 +41,35 @@
       }
 
 
-      input[type="email"] {
+      .email {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
-        border-width: 0;
         background-color: #333333;
         color:white;
         margin-bottom: 30px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
         
       }
 
-      input[type="message"] {
+      .message {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
-        border-width: 0;
         background-color: #333333;
         color:white;
         margin-bottom: 20px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
       }
+
 
       button[type="submit"] {
         background-color: royalblue;
@@ -139,11 +142,11 @@
         <label class="email_label">
           Your email:
         </label>
-          <input required type="email" id="email" name="email" />
+          <input required class="email" type="email" id="email" name="email" />
         <label class="message_label">
           Your message:
         </label>
-          <input required type="message" id="message" name="message"></input>
+          <input required class="message" type="message" id="message" name="message"></input>
         <button type="submit">Send</button>
       </form>
     </main>
