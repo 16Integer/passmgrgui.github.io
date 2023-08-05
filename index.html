@@ -36,7 +36,11 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #333;
+        background: radial-gradient(
+          circle at 24.1% 68.8%,
+          rgb(50, 50, 50) 0%,
+          rgb(0, 0, 0) 99.4%
+        );
         padding: 10px 0;
         text-align: center;
       }
@@ -80,6 +84,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-shadow: 1px 1px black;
       }
 
       .platform_img {
@@ -115,9 +120,9 @@
   </head>
   <body>
     <div class="menubar">
-      <a class="menu-item" href="#">Home</a>
-      <a class="menu-item" href="#">About</a>
-      <a class="menu-item" href="contact">Contact</a>
+      <a class="menu-item" href="/">Home</a>
+      <a class="menu-item" href="about.html">About</a>
+      <a class="menu-item" href="contact.html">Contact</a>
       <a
         class="menu-item"
         href="https://github.com/passmgrgui/passwordgenerator"
