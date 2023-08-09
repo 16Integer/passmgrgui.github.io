@@ -9,14 +9,17 @@
       body {
         margin: 0;
         overflow: hidden;
+        background-color: #0f0f0ff4;
+        color: white;
+        min-height: 100vh;
       }
 
       .menubar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+        background: radial-gradient(
+          circle at 24.1% 68.8%,
+          rgb(50, 50, 50) 0%,
+          rgb(0, 0, 0) 99.4%
+        );
         padding: 10px 0;
         text-align: center;
       }
@@ -34,42 +37,36 @@
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         font-size: 37.5px;
-        margin-bottom: 30px;
         color: white;
-        padding-top: 50px;
-        text-align: center; /* Center the title */
+        padding-top: 30px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        width: 70%; /* Adjust the width as needed */
+        margin: 0 auto; /* Center the container horizontally */
+      }
 
-      .email {
+      .input-field {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
+        margin-bottom: 5px;
         box-sizing: border-box;
         background-color: #333333;
-        color:white;
-        margin-bottom: 30px;
+        color: white;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
         border: 2px solid #ccc;
         border-radius: 5px;
-        
       }
-
-      .message {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        background-color: #333333;
-        color:white;
-        margin-bottom: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-      }
-
 
       .submit {
         background-color: royalblue;
@@ -77,55 +74,34 @@
         font-size: 25px;
         color: white;
         border: none;
-        width: 40%;
+        width: 100%;
         height: 40px;
         cursor: pointer;
-        position: absolute;
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%);
         border: 3px solid rgba(255, 255, 255, 0.678);
         border-radius: 5px;
+        margin-top: 20px;
       }
 
       .submit:hover {
         opacity: 0.8;
       }
 
-      .contact {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+      .label {
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: 25px;
+        margin-bottom: 5px;
+        text-align: left;
       }
 
-      main {
-        background-color: #0f0f0ff4;
+      .label:hover {
         color: white;
-        min-height: 100vh;
       }
 
-      .email_label {
-        font-family: "Roboto", "Arial", sans-serif;
-        font-size: large;
-        bottom: 150px;
-        text-align: center;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-
+      @media (max-width: 768px) {
+        .form-container {
+          width: 90%; /* Adjust the width for smaller screens */
+        }
       }
-
-      .message_label {
-        font-family: "Roboto", "Arial", sans-serif;
-        font-size: large;
-        bottom: 70px;
-        text-align: center;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        
-      }
-
     </style>
   </head>
   <body>
@@ -140,23 +116,28 @@
       >
     </div>
 
-    <main>
+
       <h1 class="title">Contact Page</h1>
-      <form
-        class="contact"
-        action="https://formspree.io/f/mleyglgp"
-        method="POST"
-      >
-        <label class="email_label">
-          Your email:
-        </label>
-          <input required class="email" type="email" id="email" name="email" />
-        <label class="message_label">
-          Your message:
-        </label>
-          <input required class="message" type="message" id="message" name="message"></input>
-        <button class="submit" type="submit">Send</button>
-      </form>
-    </main>
+      <div class="form-container">
+        <form action="https://formspree.io/f/mleyglgp" method="POST">
+          <label class="label" for="email">Your email:</label>
+          <input
+            required
+            class="input-field"
+            type="email"
+            id="email"
+            name="email"
+          />
+          <label class="label" for="message">Your message:</label>
+          <input
+            required
+            class="input-field"
+            type="text"
+            id="message"
+            name="message"
+          />
+          <button class="submit" type="submit">Send</button>
+        </form>
+      </div>
   </body>
 </html>
