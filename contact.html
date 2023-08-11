@@ -45,13 +45,11 @@
       }
 
       .form-container {
-        display: flex;
-        flex-direction: column;
+        width: 50%;
         align-items: center;
         text-align: center;
-        padding: 20px;
-        width: 70%; /* Adjust the width as needed */
-        margin: 0 auto; /* Center the container horizontally */
+        margin: 0 auto;
+        margin-top: 10px;
       }
 
       .input-field {
@@ -116,28 +114,27 @@
       >
     </div>
 
-
-      <h1 class="title">Contact Page</h1>
-      <div class="form-container">
-        <form action="https://formspree.io/f/mleyglgp" method="POST">
-          <label class="label" for="email">Your email:</label>
-          <input
-            required
-            class="input-field"
-            type="email"
-            id="email"
-            name="email"
-          />
-          <label class="label" for="message">Your message:</label>
-          <input
-            required
-            class="input-field"
-            type="text"
-            id="message"
-            name="message"
-          />
-          <button class="submit" type="submit">Send</button>
-        </form>
-      </div>
+    <h1 class="title">Contact Page</h1>
+    <div class="form-container">
+      <form action="https://formspree.io/f/mleyglgp" method="POST">
+        <label class="label" for="email">Your email:</label>
+        <input
+          required
+          class="input-field"
+          type="email"
+          id="email"
+          name="email"
+        />
+        <label class="label" for="message">Your message:</label>
+        <input
+          required
+          class="input-field"
+          type="text"
+          id="message"
+          name="message"
+        />
+        <button class="submit" type="submit">Send</button>
+      </form>
+    </div>
   </body>
 </html>
