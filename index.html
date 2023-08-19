@@ -1,152 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Manager</title>
+    <meta
+      name="description"
+      content="A python based Password Manager & Generator."
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap"
+      rel="preconnect stylesheet"
+      crossorigin=""
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Google Sans", arial, sans-serif;
+        color: white;
+        background-color: #0f0f0ff4;
+        min-height: 100vh;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Password Manager</title>
-  <meta name="description" content="A python based Password Manager & Generator." />
-  <link
-    href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap"
-    rel="preconnect stylesheet" crossorigin="" />
-  <style>
-    body {
-      margin: 0;
-      font-family: "Google Sans", arial, sans-serif;
-      color: white;
-      background-color: #0f0f0ff4;
-      min-height: 100vh;
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      body::-webkit-scrollbar {
+        display: none;
+      }
 
-    }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    body::-webkit-scrollbar {
-      display: none;
-    }
-
-    .menubar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: radial-gradient(circle at 24.1% 68.8%,
+      .menubar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: radial-gradient(
+          circle at 24.1% 68.8%,
           rgb(50, 50, 50) 0%,
-          rgb(0, 0, 0) 99.4%);
-      padding: 10px 0;
-      text-align: center;
-    }
+          rgb(0, 0, 0) 99.4%
+        );
+        padding: 10px 0;
+        text-align: center;
+      }
 
-    .menu-item {
-      display: inline-block;
-      margin: 0 10px;
-      font-size: 20px;
-      text-decoration: none;
-      color: inherit;
-    }
+      .menu-item {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 20px;
+        text-decoration: none;
+        color: inherit;
+      }
 
-    .title {
-      font-weight: bold;
-      font-size: 37.5px;
-      padding-top: 50px;
-      text-align: center;
-    }
+      .title {
+        font-weight: bold;
+        font-size: 37.5px;
+        padding-top: 50px;
+        text-align: center;
+      }
 
-    .download_frame {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0 auto;
-      max-width: 600px;
-      margin-top: 10px;
-    }
+      .download_frame {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 600px;
+        margin-top: 10px;
+      }
 
-    .download_button {
-      color: inherit;
-      background-color: DodgerBlue;
-      border: 3px solid rgba(255, 255, 255, 0.678);
-      border-radius: 5px;
-      padding: 12px 30px;
-      font-size: 25px;
-      text-decoration: none;
-      margin: 10px;
-      text-align: center;
-      width: 180px;
-      /* Add a fixed width for all buttons */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-shadow: 1px 1px black;
-    }
+      .download_button {
+        color: inherit;
+        background-color: DodgerBlue;
+        border: 3px solid rgba(255, 255, 255, 0.678);
+        border-radius: 5px;
+        padding: 12px 30px;
+        font-size: 25px;
+        text-decoration: none;
+        margin: 10px;
+        text-align: center;
+        width: 180px;
+        /* Add a fixed width for all buttons */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-shadow: 1px 1px black;
+      }
 
-    .platform_img {
-      max-width: 75px;
-      max-height: 75px;
-      margin-top: 10px;
-    }
+      .platform_img {
+        max-width: 75px;
+        max-height: 75px;
+        margin-top: 10px;
+      }
 
-    .download_button:hover {
-      opacity: 0.8;
-    }
+      .download_button:hover {
+        opacity: 0.8;
+      }
 
-    .txt {
-      font-size: 20.5px;
-      margin-bottom: 10px;
-      text-align: center;
-      max-width: 500px;
-      margin: auto;
-    }
+      .txt {
+        font-size: 20.5px;
+        margin-bottom: 10px;
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
+      }
 
-    .link {
-      color: inherit;
-      /* Inherits text color from its parent element */
-      font-size: inherit;
-      /* Inherits font size from its parent element */
-      font-weight: bold;
-    }
+      .link {
+        color: inherit;
+        /* Inherits text color from its parent element */
+        font-size: inherit;
+        /* Inherits font size from its parent element */
+        font-weight: bold;
+      }
 
-    .subheading {
-      text-align: center;
-      font-size: 28px;
-      font-weight: normal;
-    }
-  </style>
-</head>
+      .subheading {
+        text-align: center;
+        font-size: 28px;
+        font-weight: normal;
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="menubar">
-    <a class="menu-item" href="/">Home</a>
-    <a class="menu-item" href="about.html">About</a>
-    <a class="menu-item" href="contact.html">Contact</a>
-    <a class="menu-item" href="https://github.com/passmgrgui/passwordgenerator">Source Code</a>
-  </div>
+  <body>
+    <div class="menubar">
+      <a class="menu-item" href="/">Home</a>
+      <a class="menu-item" href="about.html">About</a>
+      <a class="menu-item" href="contact.html">Contact</a>
+      <a
+        class="menu-item"
+        href="https://github.com/passmgrgui/passwordgenerator"
+        >Source Code</a
+      >
+    </div>
 
-  <h1 class="title">Password Manager</h1>
-  <p class="txt">
-    The Password Manager program includes download options for Windows, Linux
-    (deb, rpm) and MacOS. For the source code, click
-    <a class="link" href="https://github.com/passmgrgui/passwordgenerator">here.</a>
-  </p>
-  <h2 class="subheading">Downloads</h2>
-  <div class="download_frame">
-    <a class="download_button" href="images/linux.png" download>
-      <img class="platform_img" src="images/Tux.png" alt="Debian Logo" />
-      Linux
-    </a>
+    <h1 class="title">Password Manager</h1>
+    <p class="txt">
+      172.20.109.86, The Password Manager program includes download options for
+      Windows, Linux (deb, rpm) and MacOS. For the source code, click
+      <a class="link" href="https://github.com/passmgrgui/passwordgenerator"
+        >here.</a
+      >
+    </p>
+    <h2 class="subheading">Downloads</h2>
+    <div class="download_frame">
+      <a class="download_button" href="images/linux.png" download>
+        <img class="platform_img" src="images/Tux.png" alt="Debian Logo" />
+        Linux
+      </a>
 
-    <a class="download_button" href="images/macos.png" download>
-      <img class="platform_img" src="images/apple.png" alt="MacOS Logo" />
-      MacOS
-    </a>
+      <a class="download_button" href="images/macos.png" download>
+        <img class="platform_img" src="images/apple.png" alt="MacOS Logo" />
+        MacOS
+      </a>
 
-    <a class="download_button" href="images/windows.png" download>
-      <img class="platform_img" src="images/windows.png" alt="Windows Logo" />
-      Windows
-    </a>
-  </div>
-</body>
-
+      <a class="download_button" href="images/windows.png" download>
+        <img class="platform_img" src="images/windows.png" alt="Windows Logo" />
+        Windows
+      </a>
+    </div>
+  </body>
 </html>
