@@ -10,83 +10,15 @@
       rel="preconnect stylesheet"
       crossorigin=""
     />
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        background-color: #0f0f0ff4;
-        color: white;
-        min-height: 100vh;
-        font-family: "Google Sans", arial, sans-serif;
-      }
-
-      .menubar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: radial-gradient(
-          circle at 24.1% 68.8%,
-          rgb(50, 50, 50) 0%,
-          rgb(0, 0, 0) 99.4%
-        );
-        padding: 10px 0;
-        text-align: center;
-      }
-
-      .menu-item {
-        display: inline-block;
-        margin: 0 10px;
-        font-size: 20px;
-        text-decoration: none;
-        color: white;
-      }
-
-      .title {
-        font-weight: bold;
-        font-size: 37.5px;
-        margin-bottom: 15px;
-        padding-top: 50px;
-        text-align: center; /* Center the title */
-      }
-
-      .profile_pic {
-        width: 100px;
-        height: 100px;
-        border-radius: 25px;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 15px;
-      }
-
-      .subheading {
-        font-weight: bold;
-        font-size: 28px;
-        margin-bottom: 30px;
-        text-align: center; /* Center the title */
-      }
-
-      .txt {
-        font-size: 20.5px;
-        margin-bottom: 10px;
-        text-align: center;
-        max-width: 500px;
-        margin: auto;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="about.js"></script>
   </head>
   <body>
-    <div class="menubar">
-      <a class="menu-item" href="/">Home</a>
-      <a class="menu-item" href="about.html">About</a>
-      <a class="menu-item" href="contact.html">Contact</a>
-      <a
-        class="menu-item"
-        href="https://github.com/passmgrgui/passwordgenerator"
-        >Source Code</a
-      >
-    </div>
+    <div class="menubar"></div>
+    <script>
+      menu_bar();
+    </script>
 
     <h1 class="title">About Page</h1>
     <h2 class="subheading">Gamer Bee</h2>
@@ -97,5 +29,8 @@
       HTML and CSS. I've got no social media (except youtube), you can contact
       me on the contact page if you would like.
     </p>
+    <div class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
   </body>
 </html>

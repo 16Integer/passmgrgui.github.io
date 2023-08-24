@@ -1,0 +1,211 @@
+/* Styling for website */
+
+body {
+  margin: 0;
+  font-family: "Google Sans", arial, sans-serif;
+  color: white;
+  background-color: #0f0f0ff4;
+  min-height: 100vh;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+  padding: 10px 0;
+  text-align: center;
+}
+
+.menu-item {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.menu-item:hover {
+  opacity: 1;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 37.5px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.download_frame {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+.download_button {
+  color: inherit;
+  background-color: DodgerBlue;
+  border: 3px solid rgba(255, 255, 255, 0.678);
+  border-radius: 5px;
+  padding: 12px 30px;
+  font-size: 25px;
+  text-decoration: none;
+  margin: 10px;
+  text-align: center;
+  width: 180px;
+  /* Add a fixed width for all buttons */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 1px 1px black;
+  transition: transform 0.5s, opacity 0.3s, box-shadow 0.3s;
+}
+
+.platform_img {
+  max-width: 75px;
+  max-height: 75px;
+  margin-top: 10px;
+}
+
+.download_button:hover {
+  opacity: 0.8;
+  transform: translateY(-8px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.txt {
+  font-size: 20.5px;
+  margin-bottom: 10px;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.link {
+  color: inherit;
+  /* Inherits text color from its parent element */
+  font-size: inherit;
+  /* Inherits font size from its parent element */
+  font-weight: bold;
+}
+
+.subheading {
+  text-align: center;
+  font-size: 28px;
+  font-weight: normal;
+}
+.profile_pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 15px;
+}
+/* Style for the loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of other elements */
+}
+
+/* Style for the loading spinner */
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes animation for the spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.form-container {
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  background-color: #333333;
+  color: white;
+  font-size: 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit {
+  background-color: royalblue;
+  font-size: 25px;
+  color: white;
+  border: none;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.678);
+  border-radius: 5px;
+  margin-top: 20px;
+  font-family: "Google Sans", arial, sans-serif;
+}
+
+.submit:hover {
+  opacity: 0.8;
+}
+
+.label {
+  font-size: 25px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.label:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%; /* Adjust the width for smaller screens */
+  }
+}

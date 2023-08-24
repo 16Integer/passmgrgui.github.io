@@ -13,125 +13,16 @@
       rel="preconnect stylesheet"
       crossorigin=""
     />
-    <style>
-      body {
-        margin: 0;
-        font-family: "Google Sans", arial, sans-serif;
-        color: white;
-        background-color: #0f0f0ff4;
-        min-height: 100vh;
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-      }
-
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      body::-webkit-scrollbar {
-        display: none;
-      }
-
-      .menubar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: radial-gradient(
-          circle at 24.1% 68.8%,
-          rgb(50, 50, 50) 0%,
-          rgb(0, 0, 0) 99.4%
-        );
-        padding: 10px 0;
-        text-align: center;
-      }
-
-      .menu-item {
-        display: inline-block;
-        margin: 0 10px;
-        font-size: 20px;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .title {
-        font-weight: bold;
-        font-size: 37.5px;
-        padding-top: 50px;
-        text-align: center;
-      }
-
-      .download_frame {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        max-width: 600px;
-        margin-top: 10px;
-      }
-
-      .download_button {
-        color: inherit;
-        background-color: DodgerBlue;
-        border: 3px solid rgba(255, 255, 255, 0.678);
-        border-radius: 5px;
-        padding: 12px 30px;
-        font-size: 25px;
-        text-decoration: none;
-        margin: 10px;
-        text-align: center;
-        width: 180px;
-        /* Add a fixed width for all buttons */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-shadow: 1px 1px black;
-      }
-
-      .platform_img {
-        max-width: 75px;
-        max-height: 75px;
-        margin-top: 10px;
-      }
-
-      .download_button:hover {
-        opacity: 0.8;
-      }
-
-      .txt {
-        font-size: 20.5px;
-        margin-bottom: 10px;
-        text-align: center;
-        max-width: 500px;
-        margin: auto;
-      }
-
-      .link {
-        color: inherit;
-        /* Inherits text color from its parent element */
-        font-size: inherit;
-        /* Inherits font size from its parent element */
-        font-weight: bold;
-      }
-
-      .subheading {
-        text-align: center;
-        font-size: 28px;
-        font-weight: normal;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="index.js"></script>
   </head>
 
   <body>
-    <div class="menubar">
-      <a class="menu-item" href="/">Home</a>
-      <a class="menu-item" href="about.html">About</a>
-      <a class="menu-item" href="contact.html">Contact</a>
-      <a
-        class="menu-item"
-        href="https://github.com/passmgrgui/passwordgenerator"
-        >Source Code</a
-      >
-    </div>
+    <div class="menubar"></div>
+    <script async>
+      menu_bar();
+    </script>
 
     <h1 class="title">Password Manager</h1>
     <p class="txt">
@@ -142,6 +33,9 @@
       >
     </p>
     <h2 class="subheading">Downloads</h2>
+    <div class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
     <div class="download_frame">
       <a class="download_button" href="images/linux.png" download>
         <img class="platform_img" src="images/Tux.png" alt="Debian Logo" />
