@@ -16,51 +16,54 @@
       crossorigin=""
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="index.js"></script>
   </head>
 
   <body>
     <div class="menubar"></div>
-    <script async>
-      menu_bar();
-    </script>
 
-    <h1 class="title">Password Manager</h1>
-    <p class="txt">
-      The Password Manager program currently includes download options for
-      Windows. MacOS and Linux are required to use the source code, however
-      packages are coming soon. For the source code, click
-      <a class="link" href="https://github.com/passmgrgui/passmgr">here.</a>
-    </p>
-    <h2 class="subheading">Downloads</h2>
-    <div class="download_frame">
-      <a
-        class="download_button"
-        href="https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip"
-        download
-      >
-        <img class="platform_img" src="images/Tux.png" alt="Debian Logo" />
-        Linux
-      </a>
+    <div class="main">
+      <h1 class="title">Password Manager</h1>
+      <p class="txt">
+        The Password Manager program currently includes download options for
+        Windows. MacOS and Linux are required to use the source code, however
+        packages are coming soon. For the source code, click
+        <a class="link" href="https://github.com/passmgrgui/passmgr">here.</a>
+      </p>
+      <h2 class="subheading">Downloads</h2>
+      <div class="download_frame">
+        <a
+          class="download_button"
+          href="https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip"
+          download
+        >
+          <img class="platform_img" src="images/Tux.png" alt="Debian Logo" />
+          Linux
+        </a>
 
-      <a
-        class="download_button"
-        href="https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip"
-        download
-      >
-        <img class="platform_img" src="images/apple.png" alt="MacOS Logo" />
-        MacOS
-      </a>
+        <a
+          class="download_button"
+          href="https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip"
+          download
+        >
+          <img class="platform_img" src="images/apple.png" alt="MacOS Logo" />
+          MacOS
+        </a>
 
-      <a
-        class="download_button"
-        href="https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe"
-        download
-      >
-        <img class="platform_img" src="images/windows.png" alt="Windows Logo" />
-        Windows
-      </a>
+        <a
+          class="download_button"
+          href="https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe"
+          download
+        >
+          <img
+            class="platform_img"
+            src="images/windows.png"
+            alt="Windows Logo"
+          />
+          Windows
+        </a>
+      </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js" async defer></script>
+    <script src="main.js" async defer></script>
   </body>
 </html>

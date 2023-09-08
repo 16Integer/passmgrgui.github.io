@@ -3,28 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me</title>
-    <meta name="description" content="Contact page for Password Manager" />
+    <title>Password Manager</title>
+    <meta
+      name="description"
+      content="A python based Password Manager & Generator."
+    />
+    <link rel="icon" type="image/x-icon" href="/images/icon.png" />
+
     <link
       href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap"
       rel="preconnect stylesheet"
       crossorigin=""
     />
-    <link rel="icon" type="image/x-icon" href="/images/icon.png" />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <div class="menubar"></div>
     <div class="main">
-      <h1 class="title">About Page</h1>
-      <h2 class="subheading">Intercept</h2>
-      <img class="profile_pic" src="images/intercept.jpg" alt="gamr_bee" />
+      <h1 class="title">Commonly Asked Questions</h1>
+      <p class="txt"><strong>1. How can I reset my master password?</strong></p>
       <p class="txt">
-        My online alias is "Intercept". The Password Manager was made using
-        Python (flet & fernet) & the website was made using HTML, CSS and
-        JavaScript. You can contact me on the contact page if you would like.
+        To reset your master password, simply remove the
+        masterpassword.encrypted file in your OS directory. Windows:
+        %LOCALAPPDATA%/
+        <br />
+        Linux: ~\.config\
+        <br />
+        MacOS: ~\Libary\Application Support\
       </p>
     </div>
+    <!-- Close the "main" div here -->
     <script src="https://code.jquery.com/jquery-1.10.2.js" async defer></script>
     <script src="main.js" async defer></script>
   </body>

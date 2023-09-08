@@ -12,38 +12,36 @@
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="icon" type="image/x-icon" href="/images/icon.png" />
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="contact.js"></script>
   </head>
   <body>
     <div class="menubar"></div>
-    <script>
-      menu_bar();
-    </script>
-
-    <h1 class="title">Contact Page</h1>
-    <div class="form-container">
-      <form action="https://formspree.io/f/mleyglgp" method="POST">
-        <label class="label" for="email">Your email:</label>
-        <input
-          required
-          class="input-field"
-          type="email"
-          id="email"
-          name="email"
-          autocomplete="on"
-        />
-        <label class="label" for="message">Your message:</label>
-        <input
-          required
-          class="input-field"
-          type="text"
-          id="message"
-          name="message"
-          autocomplete="on"
-        />
-        <button class="submit" type="submit">Send</button>
-      </form>
+    <div class="main">
+      <h1 class="title">Contact Page</h1>
+      <div class="form-container">
+        <form action="https://formspree.io/f/mleyglgp" method="POST">
+          <label class="label" for="email">Your email:</label>
+          <input
+            required
+            class="input-field"
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="on"
+          />
+          <label class="label" for="message">Your message:</label>
+          <input
+            required
+            class="input-field"
+            type="text"
+            id="message"
+            name="message"
+            autocomplete="on"
+          />
+          <button class="submit" type="submit">Send</button>
+        </form>
+      </div>
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="main.js"></script>
     </div>
   </body>
 </html>
