@@ -5,7 +5,7 @@ $(function () {
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  const downloadButton = document.querySelector(".download_button");
+  const downloadButton = document.getElementById("download_button");
   const userAgent = navigator.userAgent;
 
   downloadButton.addEventListener("click", function () {
