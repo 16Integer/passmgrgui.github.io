@@ -21,6 +21,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.location.href = downloadUrl;
-    console.log("abc");
   });
 });
