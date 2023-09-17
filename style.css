@@ -4,8 +4,8 @@ body {
   margin: 0;
   font-family: "Google Sans", arial, sans-serif;
   color: white;
-  background-color: #0f0f0ff4;
   min-height: 100vh;
+  background-color: #111;
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
@@ -19,6 +19,8 @@ body::-webkit-scrollbar {
 
 .main {
   display: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menubar {
@@ -50,8 +52,16 @@ body::-webkit-scrollbar {
 
 .title {
   font-weight: bold;
-  font-size: 37.5px;
+  font-size: 45px;
   text-align: center;
+}
+
+.download_frame_parent {
+  background-image: url(images/bg.webp);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  margin-bottom: 20px;
 }
 
 .download_frame {
@@ -61,6 +71,19 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   max-width: 600px;
   margin-top: 10px;
+  text-align: center;
+  border-radius: 10px;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+}
+
+.download_title {
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-weight: 600;
+  font-size: 3.75rem;
 }
 
 .download_button {
@@ -93,8 +116,7 @@ body::-webkit-scrollbar {
 
 .download_button:hover {
   opacity: 0.8;
-  transform: translateY(-8px);
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  background-color: green;
 }
 
 .txt {
@@ -193,4 +215,15 @@ pre {
 code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 14px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.bg-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

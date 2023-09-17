@@ -1,54 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Manager</title>
-    <meta name="description" content="A python based Password Manager made using Flet & Fernet." />
+    <meta
+      name="description"
+      content="A python based Password Manager made using Flet & Fernet."
+    />
     <link rel="icon" type="image/x-icon" href="/images/icon.webp" />
-    <link href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap" rel="preconnect stylesheet" crossorigin="" />
+    <link
+      href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
+      rel="preconnect stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap"
+      rel="preconnect stylesheet"
+      crossorigin=""
+    />
     <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="menubar"></div>
     <div class="main">
-        <h1 class="title">Password Manager</h1>
-        <p class="txt">
-            The Password Manager program currently has executable files for Windows & Linux. MacOS requires the
-            <a class="link" href="https://github.com/passmgrgui/passmgr">source code</a>. Keep in mind on Linux & MacOS you must have all the required dependencies.
-            <br> <strong>Linux & MacOS</strong>
-            <pre><code>pip3 install cryptography flet pyperclip</code></pre> <br>
-            <pre><code>brew update && brew upgrade && brew install python3 && pip3 install cryptography flet pyperclip</code></pre>
-        </p>
-        <h2 class="subheading">Downloads</h2>
+      <div class="download_frame_parent">
         <div class="download_frame">
-                <a id="download_button" class="download_button">
-                <img class="platform_img" src="images/download.svg" alt="Download icon" />
-                Download</a>
+          <p class="download_title">
+            Download an open source password manager today.
+          </p>
+          <a
+            style="font-family: monospace"
+            id="download_button"
+            class="download_button"
+          >
+            Download</a
+          >
         </div>
+      </div>
+      <img class="profile_pic" src="images/intercept.webp" alt="gamr_bee" />
+      <h2 class="subheading">Intercept</h2>
+      <p class="txt">
+        My online alias is "Intercept". The Password Manager was made using
+        Python (flet & fernet) & the website was made using HTML, CSS and
+        JavaScript. You can contact me on the contact page
+        <a href="contact" class="link">here.</a>
+      </p>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.js" async defer></script>
-    <script src="main.js" async defer></script>
+    <script src="main.js" defer></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const downloadButton = document.getElementById("download_button");
         const userAgent = navigator.userAgent;
 
         downloadButton.addEventListener("click", function () {
-        let downloadUrl =
-        "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
+          let downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
+          let os = "Unix";
 
-        if (userAgent.indexOf("Mac OS X") !== -1) {
+          if (userAgent.indexOf("Mac OS X") !== -1) {
             downloadUrl =
-            "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
-    }   else if (userAgent.indexOf("Windows") !== -1) {
+              "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
+            os = "Mac";
+          } else if (userAgent.indexOf("Windows") !== -1) {
             downloadUrl =
-            "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
-    }
+              "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
+            os = "Windows";
+          }
 
-    window.location.href = downloadUrl;
-  });
-});
-</script>
-</body>
+          window.location.href = downloadUrl;
+          setTimeout(function () {
+            window.location.href = `nextsteps?os=${os}`;
+          }, 3000); // 5 seconds
+        });
+      });
+    </script>
+  </body>
 </html>
