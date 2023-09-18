@@ -31,51 +31,71 @@
           <p class="download_title">
             Download an open source password manager today.
           </p>
-          <a
+          <button
             style="font-family: monospace"
             id="download_button"
             class="download_button"
           >
-            Download</a
-          >
+            Download
+          </button>
         </div>
       </div>
-      <img class="profile_pic" src="images/intercept.webp" alt="gamr_bee" />
+      <h2 class="subheading"><strong>About the project:</strong></h2>
+      <img class="profile_pic" src="images/intercept.webp" alt="profile_pic" />
       <h2 class="subheading">Intercept</h2>
       <p class="txt">
-        My online alias is "Intercept". The Password Manager was made using
-        Python (flet & fernet) & the website was made using HTML, CSS and
-        JavaScript. You can contact me on the contact page
+        This program was made using Python (flet & fernet) & the website was
+        made using HTML, CSS and JavaScript. You can contact me on the contact
+        page
         <a href="contact" class="link">here.</a>
       </p>
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="main.js" async defer></script>
     <script>
+      const userAgent = navigator.userAgent;
+      const downloadButton = document.getElementById("download_button");
+      const tooltipText = document.querySelector(".tooltip-text");
       document.addEventListener("DOMContentLoaded", function () {
-        const downloadButton = document.getElementById("download_button");
-        const userAgent = navigator.userAgent;
+        if (
+          !userAgent.indexOf("Windows") !== -1 ||
+          !userAgent.indexOf("Android") !== -1
+        ) {
+        }
+        if (
+          (!userAgent.indexOf("iPhone") !== -1 &&
+            !userAgent.indexOf("Android") !== -1 &&
+            userAgent.indexOf("Windows") !== -1) ||
+          userAgent.indexOf("Mac OS X") !== -1 ||
+          userAgent.indexOf("X11") !== -1 ||
+          userAgent.indexOf("Wayland") !== -1
+        ) {
+          downloadButton.addEventListener("click", function () {
+            let downloadUrl =
+              "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
+            let os = "Unix";
 
-        downloadButton.addEventListener("click", function () {
-          let downloadUrl =
-            "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
-          let os = "Unix";
+            if (userAgent.indexOf("Mac OS X") !== -1) {
+              downloadUrl =
+                "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
+              os = "Mac";
+            } else if (userAgent.indexOf("Windows") !== -1) {
+              downloadUrl =
+                "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
+              os = "Windows";
+            }
 
-          if (userAgent.indexOf("Mac OS X") !== -1) {
-            downloadUrl =
-              "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
-            os = "Mac";
-          } else if (userAgent.indexOf("Windows") !== -1) {
-            downloadUrl =
-              "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
-            os = "Windows";
-          }
-
-          window.location.href = downloadUrl;
-          setTimeout(function () {
-            window.location.href = `nextsteps?os=${os}`;
-          }, 1000);
-        });
+            window.location.href = downloadUrl;
+            setTimeout(function () {
+              window.location.href = `nextsteps?os=${os}`;
+            }, 1000);
+          });
+        } else {
+          downloadButton.style.opacity = 0.3;
+          downloadButton.style.backgroundColor = "grey";
+          downloadButton.title =
+            "Password Manager is currently only supported on desktop UNIX or DOS devices. Please refer to the source code.";
+        }
       });
     </script>
   </body>
