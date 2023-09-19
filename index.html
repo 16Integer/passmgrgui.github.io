@@ -23,20 +23,34 @@
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
+
   <body>
     <div class="menubar"></div>
+    <div class="overlay"></div>
+    <div class="otherDownloadsFrame">
+      <p class="subheading">Other Downloads</p>
+      <div class="radio-toolbar">
+        <input type="radio" id="radioWindows" name="radioOs" value="Windows" />
+        <label for="radioWindows">Windows</label>
+        <input type="radio" id="radioMac" name="radioOs" value="Mac" />
+        <label for="radioMac">MacOS</label>
+        <input type="radio" id="radioUnix" name="radioOs" value="Unix" />
+        <label for="radioUnix">Unix</label>
+      </div>
+      <p>&nbsp;</p>
+      <button class="otherDownloadsButton" onclick="downloadOtherOsClick()">
+        Download
+      </button>
+    </div>
     <div class="main">
       <div class="download_frame_parent">
         <div class="download_frame">
           <p class="download_title">
             Download an open source password manager today.
           </p>
-          <button
-            style="font-family: monospace"
-            id="download_button"
-            class="download_button"
-          >
-            Download
+          <button id="download_button" class="download_button">Download</button>
+          <button class="otherDownloads" onclick="otherDownloadsClick()">
+            ...
           </button>
         </div>
       </div>
@@ -56,39 +70,42 @@
       const userAgent = navigator.userAgent;
       const downloadButton = document.getElementById("download_button");
       const tooltipText = document.querySelector(".tooltip-text");
+      const otherDownloadsFrame = document.querySelector(
+        ".otherDownloadsFrame"
+      );
+      const overlay = document.querySelector(".overlay");
+      const radioButtons = document.querySelectorAll("input[type='radio']");
+      const body = document.body;
+      let selectedValue;
+      let isMobile = false;
+
+      if (
+        /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+          navigator.userAgent || navigator.vendor || window.opera
+        )
+      ) {
+        isMobile = true; // Set the constant to true if it's a mobile device
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         if (
-          !userAgent.indexOf("Windows") !== -1 ||
-          !userAgent.indexOf("Android") !== -1
-        ) {
-        }
-        if (
-          (!userAgent.indexOf("iPhone") !== -1 &&
-            !userAgent.indexOf("Android") !== -1 &&
-            userAgent.indexOf("Windows") !== -1) ||
-          userAgent.indexOf("Mac OS X") !== -1 ||
-          userAgent.indexOf("X11") !== -1 ||
-          userAgent.indexOf("Wayland") !== -1
+          !isMobile &&
+          (userAgent.indexOf("Windows") !== -1 ||
+            userAgent.indexOf("Mac OS X") !== -1 ||
+            userAgent.indexOf("X11") !== -1 ||
+            userAgent.indexOf("Wayland") !== -1 ||
+            userAgent.indexOf("Linux") !== -1)
         ) {
           downloadButton.addEventListener("click", function () {
-            let downloadUrl =
-              "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
             let os = "Unix";
 
             if (userAgent.indexOf("Mac OS X") !== -1) {
-              downloadUrl =
-                "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
               os = "Mac";
             } else if (userAgent.indexOf("Windows") !== -1) {
-              downloadUrl =
-                "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
               os = "Windows";
             }
 
-            window.location.href = downloadUrl;
-            setTimeout(function () {
-              window.location.href = `nextsteps?os=${os}`;
-            }, 1000);
+            download(os);
           });
         } else {
           downloadButton.style.opacity = 0.3;
@@ -97,6 +114,54 @@
             "Password Manager is currently only supported on desktop UNIX or DOS devices. Please refer to the source code.";
         }
       });
+
+      function otherDownloadsClick() {
+        window.scrollTo(0, 0);
+        overlay.style.display = "block";
+        otherDownloadsFrame.style.display = "flex";
+        body.style.margin = "0";
+        body.style.height = "100%";
+        body.style.overflow = "hidden";
+        overlay.addEventListener("click", function () {
+          overlay.style.display = "none";
+          otherDownloadsFrame.style.display = "none";
+          body.style.margin = "unset";
+          body.style.height = "unset";
+          body.style.overflow = "unset";
+        });
+      }
+      function downloadOtherOsClick() {
+        radioButtons.forEach(function (radio) {
+          if (radio.checked) {
+            selectedValue = radio.value;
+          }
+        });
+        if (selectedValue == "Windows") {
+          os = "Windows";
+        } else if (selectedValue == "Mac") {
+          os = "Mac";
+        } else if (selectedValue == "Unix") {
+          os = "Unix";
+        }
+        download(os);
+      }
+      function download(os) {
+        let downloadUrl;
+        if (os == "Windows") {
+          downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
+        } else if (os == "Mac") {
+          downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
+        } else if (os == "Unix") {
+          downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
+        }
+        window.location.href = downloadUrl;
+        setTimeout(function () {
+          window.location.href = `nextsteps?os=${os}`;
+        }, 1000);
+      }
     </script>
   </body>
 </html>
