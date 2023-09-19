@@ -48,13 +48,15 @@
           <p class="download_title">
             Download an open source password manager today.
           </p>
-          <button id="download_button" class="download_button">Download</button>
+          <button class="download_button">Download</button>
           <button class="otherDownloads" onclick="otherDownloadsClick()">
             ...
           </button>
         </div>
       </div>
-      <h2 class="subheading"><strong>About the project:</strong></h2>
+      <h2 class="subheading" style="margin-bottom: 10px">
+        <strong>About the project:</strong>
+      </h2>
       <img class="profile_pic" src="images/intercept.webp" alt="profile_pic" />
       <h2 class="subheading">Intercept</h2>
       <p class="txt">
@@ -68,7 +70,7 @@
     <script src="main.js" async defer></script>
     <script>
       const userAgent = navigator.userAgent;
-      const downloadButton = document.getElementById("download_button");
+      const downloadButton = document.querySelector(".download_button");
       const tooltipText = document.querySelector(".tooltip-text");
       const otherDownloadsFrame = document.querySelector(
         ".otherDownloadsFrame"
@@ -157,7 +159,7 @@
           downloadUrl =
             "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
         }
-        window.location.href = downloadUrl;
+        window.location.replace(downloadUrl);
         setTimeout(function () {
           window.location.href = `nextsteps?os=${os}`;
         }, 1000);

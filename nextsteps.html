@@ -23,10 +23,15 @@
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
+
   <body>
     <div class="menubar"></div>
     <div class="main">
-      <h1 class="title">Thanks for downloading!</h1>
+      <h1 class="title" style="margin-bottom: 0">Thanks for downloading!</h1>
+      <p class="subheading" style="font-size: large">
+        The download should start automatically. If it doesn't, try again
+        <a class="link" href="javascript:downloadIfNotAlready()">here.</a>
+      </p>
       <p class="txt" style="display: none"></p>
       <p class="subheading" id="commandLabel1">COMMAND 1</p>
       <pre
@@ -53,53 +58,67 @@
       }
 
       const params = parseURLParams();
+      let os;
 
       if ("os" in params) {
-        const os = params.os;
+        os = params.os;
+      } else {
+        window.location.replace("/");
+      }
 
-        if (os == "Windows" || os == "Unix" || os == "Mac") {
-          const stepsLeft = document.querySelector(".txt");
-          const command1 = document.querySelector(".command1");
-          const command2 = document.querySelector(".command2");
-          const commandsHolder = document.querySelector(".commandsHolder");
-          const commandsHolder2 = document.querySelector(".commandsHolder2");
-          const commandLabel1 = document.querySelector("#commandLabel1");
-          const commandLabel2 = document.querySelector("#commandLabel2");
+      if (os == "Windows" || os == "Unix" || os == "Mac") {
+        const stepsLeft = document.querySelector(".txt");
+        const command1 = document.querySelector(".command1");
+        const command2 = document.querySelector(".command2");
+        const commandsHolder = document.querySelector(".commandsHolder");
+        const commandsHolder2 = document.querySelector(".commandsHolder2");
+        const commandLabel1 = document.querySelector("#commandLabel1");
+        const commandLabel2 = document.querySelector("#commandLabel2");
 
-          if (os == "Unix") {
-            stepsLeft.style.display = "block";
-            stepsLeft.textContent =
-              "Currently, only Windows has an executable file that can be run without dependencies. Follow the steps below to install the dependencies. Afterwards, to install, simply extract the ZIP file & run the .bin file using your DE or terminal.";
-            commandsHolder.style.display = "block";
-            commandsHolder2.style.display = "block";
-            command1.textContent = "pip3 install cryptography flet pyperclip";
-            command2.textContent = "./passmgrgui.bin";
-          } else if (os == "Windows") {
-            stepsLeft.style.display = "block";
-            stepsLeft.textContent =
-              "To install, simply run the installer executable, either by right clicking > Open or double clicking the file. The installer will guide you.";
-            commandsHolder.style.display = "block";
-            commandsHolder2.style.display = "block";
-            command1.textContent = "Run the installer executable.";
-            command2.textContent =
-              "The installer will guide you through the next steps.";
-            commandLabel1.textContent = "STEP 1";
-            commandLabel2.textContent = "STEP 2";
-          } else if (os == "Mac") {
-            stepsLeft.style.display = "block";
-            stepsLeft.textContent =
-              "Currently, only Windows has an executable file that can be run without dependencies. Follow the steps below to install the dependencies. Afterwards, to install, simply extract the ZIP file & run the python file using python3 passmgrgui.py or Finder.";
-            commandsHolder.style.display = "block";
-            commandsHolder2.style.display = "block";
-            command1.textContent =
-              "brew update && brew upgrade && brew install python3 && pip3 install cryptography flet pyperclip";
-            command2.textContent = "python3 passmgrgui.py";
-          }
-        } else {
-          window.location.replace("/");
+        if (os == "Unix") {
+          stepsLeft.style.display = "block";
+          stepsLeft.textContent =
+            "Currently, only Windows has an executable file that can be run without dependencies. Follow the steps below to install the dependencies. Afterwards, to install, simply extract the ZIP file & run the .bin file using your DE or terminal.";
+          commandsHolder.style.display = "block";
+          commandsHolder2.style.display = "block";
+          command1.textContent = "pip3 install cryptography flet pyperclip";
+          command2.textContent = "./passmgrgui.bin";
+        } else if (os == "Windows") {
+          stepsLeft.style.display = "block";
+          stepsLeft.textContent =
+            "To install, simply run the installer executable, either by right clicking > Open or double clicking the file. The installer will guide you.";
+          commandsHolder.style.display = "block";
+          commandsHolder2.style.display = "block";
+          command1.textContent = "Run the installer executable.";
+          command2.textContent =
+            "The installer will guide you through the next steps.";
+          commandLabel1.textContent = "STEP 1";
+          commandLabel2.textContent = "STEP 2";
+        } else if (os == "Mac") {
+          stepsLeft.style.display = "block";
+          stepsLeft.textContent =
+            "Currently, only Windows has an executable file that can be run without dependencies. Follow the steps below to install the dependencies. Afterwards, to install, simply extract the ZIP file & run the python file using python3 passmgrgui.py or Finder.";
+          commandsHolder.style.display = "block";
+          commandsHolder2.style.display = "block";
+          command1.textContent =
+            "brew update && brew upgrade && brew install python3 && pip3 install cryptography flet pyperclip";
+          command2.textContent = "python3 passmgrgui.py";
         }
       } else {
         window.location.replace("/");
+      }
+      function downloadIfNotAlready() {
+        if (os == "Unix") {
+          downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
+        } else if (os == "Windows") {
+          downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/windows/passmgrguisetup.exe";
+        } else if (os == "Mac") {
+          downloadUrl =
+            "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
+        }
+        window.location.replace(downloadUrl);
       }
     </script>
   </body>
