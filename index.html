@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Password Manager</title>
     <meta
       name="description"
@@ -10,24 +13,30 @@
     />
     <link rel="icon" type="image/x-icon" href="/images/icon.webp" />
     <link
-      href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
-    />
-    <link
       href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
       rel="preconnect stylesheet"
     />
     <link
       href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap"
       rel="preconnect stylesheet"
-      crossorigin=""
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      .navbar {
+        margin-bottom: 0 !important;
+      }
+    </style>
   </head>
-  <body>
-    <div class="menubar"></div>
+  <body data-bs-theme="dark">
     <div class="overlay"></div>
     <div class="otherDownloadsFrame">
-      <p class="subheading">Other Downloads</p>
+      <p class="subheading" style="margin-top: 10px">Other Downloads</p>
       <div class="radio-toolbar">
         <input type="radio" id="radioWindows" name="radioOs" value="Windows" />
         <label for="radioWindows">Windows</label>
@@ -47,15 +56,17 @@
           <p class="download_title">
             Download an open source password manager today.
           </p>
-          <button class="download_button">Download</button>
-          <p class="whichOsDownload">*For Windows 32 & 64 bit.</p>
-          <button
-            class="otherDownloads"
-            title="More download options"
-            onclick="otherDownloadsClick()"
-          >
-            ...
-          </button>
+          <div class="downloadAutoButtons">
+            <button class="download_button">Download</button>
+            <button
+              class="otherDownloads"
+              title="More download options"
+              onclick="otherDownloadsClick()"
+            >
+              ...
+            </button>
+          </div>
+          <p class="whichOsDownload"></p>
         </div>
       </div>
       <h2 class="subheading" style="margin-bottom: 10px">
@@ -72,6 +83,11 @@
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="main.js" async defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script>
       const userAgent = navigator.userAgent;
       const downloadButton = document.querySelector(".download_button");
@@ -79,11 +95,19 @@
       const otherDownloadsFrame = document.querySelector(
         ".otherDownloadsFrame"
       );
+      const whichOsDownload = document.querySelector(".whichOsDownload");
       const overlay = document.querySelector(".overlay");
       const radioButtons = document.querySelectorAll("input[type='radio']");
       const body = document.body;
       let selectedValue;
       let isMobile = false;
+
+      $(document).keyup(function (e) {
+        if (e.key === "Escape" && overlay.style.display == "block") {
+          overlay.style.display = "none";
+          otherDownloadsFrame.style.display = "none";
+        }
+      });
 
       if (
         /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
@@ -91,6 +115,19 @@
         )
       ) {
         isMobile = true; // Set the constant to true if it's a mobile device
+      }
+
+      if (!isMobile) {
+        let os = "Unix";
+        let whichOsDownloadText = "For UNIX/GNU x64-bit systems.";
+        if (userAgent.indexOf("Mac OS X") !== -1) {
+          os = "Mac";
+          whichOsDownloadText = "For MacOS x64 & x32 bit systems.";
+        } else if (userAgent.indexOf("Windows") !== -1) {
+          os = "Windows";
+          whichOsDownloadText = "For Windows x64-bit systems.";
+        }
+        whichOsDownload.textContent = "*" + whichOsDownloadText;
       }
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -104,7 +141,6 @@
         ) {
           downloadButton.addEventListener("click", function () {
             let os = "Unix";
-
             if (userAgent.indexOf("Mac OS X") !== -1) {
               os = "Mac";
             } else if (userAgent.indexOf("Windows") !== -1) {
