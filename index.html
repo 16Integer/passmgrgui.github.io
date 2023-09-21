@@ -2,24 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Manager</title>
     <meta
       name="description"
       content="A python based Password Manager made using Flet & Fernet."
     />
     <link rel="icon" type="image/x-icon" href="/images/icon.webp" />
-    <link
-      href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
-      rel="preconnect stylesheet"
-    />
-    <link
-      href="//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700%7CRoboto:400,500,600,700%7C&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese&amp;display=swap"
-      rel="preconnect stylesheet"
-    />
+    <link href="fonts/googleSans.css" rel="preconnect stylesheet" />
+    <link href="fonts/sourceSansPro.css" rel="preconnect stylesheet" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -35,20 +26,27 @@
   </head>
   <body data-bs-theme="dark">
     <div class="overlay"></div>
-    <div class="otherDownloadsFrame">
-      <p class="subheading" style="margin-top: 10px">Other Downloads</p>
-      <div class="radio-toolbar">
-        <input type="radio" id="radioWindows" name="radioOs" value="Windows" />
-        <label for="radioWindows">Windows</label>
-        <input type="radio" id="radioMac" name="radioOs" value="Mac" />
-        <label for="radioMac">MacOS</label>
-        <input type="radio" id="radioUnix" name="radioOs" value="Unix" />
-        <label for="radioUnix">Unix</label>
+        <div class="otherDownloadsFrame">
+          <p class="subheading" style="margin-top: 10px">Other Downloads</p>
+          <div class="radio-toolbar">
+            <input
+              type="radio"
+              id="radioWindows"
+              name="radioOs"
+              value="Windows"
+            />
+            <label for="radioWindows">Windows</label>
+            <input type="radio" id="radioMac" name="radioOs" value="Mac" />
+            <label for="radioMac">MacOS</label>
+            <input type="radio" id="radioUnix" name="radioOs" value="Unix" />
+            <label for="radioUnix">Unix</label>
+          </div>
+          <p>&nbsp;</p>
+          <button class="otherDownloadsButton" onclick="downloadOtherOsClick()">
+            Download
+          </button>
+        </div>
       </div>
-      <p>&nbsp;</p>
-      <button class="otherDownloadsButton" onclick="downloadOtherOsClick()">
-        Download
-      </button>
     </div>
     <div class="main">
       <div class="download_frame_parent">
@@ -81,7 +79,6 @@
         <a href="contact" class="link">here.</a>
       </p>
     </div>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="main.js" async defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -102,7 +99,7 @@
       let selectedValue;
       let isMobile = false;
 
-      $(document).keyup(function (e) {
+      document.addEventListener("keyup", function (e) {
         if (e.key === "Escape" && overlay.style.display == "block") {
           overlay.style.display = "none";
           otherDownloadsFrame.style.display = "none";
@@ -114,7 +111,7 @@
           navigator.userAgent || navigator.vendor || window.opera
         )
       ) {
-        isMobile = true; // Set the constant to true if it's a mobile device
+        isMobile = true;
       }
 
       if (!isMobile) {
@@ -196,8 +193,7 @@
           downloadUrl =
             "https://github.com/passmgrgui/passmgr/raw/binaries/macos/passmgrgui.zip";
         } else if (os == "Unix") {
-          downloadUrl =
-            "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
+          downloadUrl = "https://github.com/passmgrgui/passmgr/raw/binaries/linux/passmgrgui.zip";
         }
         window.location.replace(downloadUrl);
         setTimeout(function () {
