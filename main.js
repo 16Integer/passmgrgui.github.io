@@ -1,11 +1,17 @@
 let path = window.location.pathname;
+let fullPath = window.location.href;
 let page = path.split("/").pop();
 
-if (page.endsWith("index")) {
+if (page.endsWith("index") || path.endsWith("//")) {
   window.location.replace("/");
 }
 if (page.endsWith(".html")) {
   window.location.replace(page.slice(0, -5));
+}
+
+if (fullPath.match(/#$/)) {
+  var newURL = fullPath.replace(/#$/, "");
+  window.location.replace(newURL);
 }
 
 fetch("menubar.html")
