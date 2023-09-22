@@ -1,3 +1,13 @@
+let path = window.location.pathname;
+let page = path.split("/").pop();
+
+if (page.endsWith("index")) {
+  window.location.replace("/");
+}
+if (page.endsWith(".html")) {
+  window.location.replace(page.slice(0, -5));
+}
+
 fetch("menubar.html")
   .then(function (response) {
     return response.text();
