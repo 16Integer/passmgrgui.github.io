@@ -25,9 +25,9 @@
       <a class="link" href="javascript:downloadIfNotAlready()">here.</a>
     </p>
     <p class="txt" style="display: none"></p>
-    <p class="subheading" id="commandLabel1">COMMAND 1</p>
+    <p class="subheading" id="commandLabel1">STEP 1</p>
     <pre class="commandsHolder" style="display: none"><code class="command1"></code></pre>
-    <p class="subheading" id="commandLabel2">COMMAND 2</p>
+    <p class="subheading" id="commandLabel2">STEP 2</p>
     <pre class="commandsHolder2" style="display: none"><code class="command2"></code></pre>
     <pre class="unixOsCommandsHolder" style="display: none"><code class="unixOsCommand"></code></pre>
   </div>
@@ -66,29 +66,27 @@
         stepsLeft.textContent = "To use the program, simply extract the ZIP file & execute the passmgrgui file using the command line or your DE. Do NOT run as root, or errors will be encountered."
         commandsHolder.style.display = "block";
         commandsHolder2.style.display = "block";
+        commandLabel1.textContent = "COMMAND"
         commandLabel2.textContent = "OR"
         command1.textContent = "./passmgrgui";
         command2.textContent = "Run using your DE."
       } else if (os == "Windows") {
         stepsLeft.style.display = "block";
         stepsLeft.textContent =
-          "To install, simply run the installer executable, either by right clicking > Open or double clicking the file. The installer will guide you.";
+          "To install, simply run the installer executable, either by right clicking > Open or double clicking the file. If you get a security warning, simply click More options > Install anyway. The installer will guide you.";
         commandsHolder.style.display = "block";
         commandsHolder2.style.display = "block";
         command1.textContent = "Run the installer executable.";
         command2.textContent =
           "The installer will guide you through the next steps.";
-        commandLabel1.textContent = "STEP 1";
-        commandLabel2.textContent = "STEP 2";
       } else if (os == "Mac") {
         stepsLeft.style.display = "block";
-        stepsLeft.textContent =
-          "Currently, only Windows & Linux have an executable file that can be run without dependencies. Follow the steps below to install the dependencies. Afterwards, to install, simply extract the ZIP file & run the python file using python3 passmgrgui.py or Finder.";
+        stepsLeft.textContent = "To use the program, simply extract the ZIP file & run the .app binary using Finder. If you get a security warning, please add the .app file as a trusted program."
         commandsHolder.style.display = "block";
         commandsHolder2.style.display = "block";
         command1.textContent =
-          "brew update && brew upgrade && brew install python3 && pip3 install cryptography flet pyperclip";
-        command2.textContent = "python3 passmgrgui.py";
+          "Run the .app binary.";
+        command2.textContent = "Launch the program using the Dock.";
       }
     } else {
       window.location.replace("/");
