@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   min-height: 100vh;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -10,8 +9,6 @@ body::-webkit-scrollbar {
 }
 
 .main {
-  padding: 0;
-  margin: 0;
   display: none;
   font-family: "Google Sans", arial, sans-serif;
 }
@@ -131,6 +128,15 @@ body::-webkit-scrollbar {
 
 .txt {
   font-size: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-txt {
+  font-size: 16px;
   margin-bottom: 5px;
   text-align: center;
   max-width: 660px;
