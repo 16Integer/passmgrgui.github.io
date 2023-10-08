@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Facts & Questions</title>
-    <meta
-      name="description"
-      content="A python based Password Manager made using Flet & Fernet."
-    />
-    <link rel="icon" type="image/x-icon" href="/images/icon.webp" />
 
-    <link href="fonts/googleSans.css" rel="preconnect stylesheet" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facts & Questions</title>
+  <meta name="description" content="A python based Password Manager made using Flet & Fernet." />
+  <link rel="icon" type="image/x-icon" href="/images/icon.webp" />
+
+  <link href="fonts/googleSans.css" rel="preconnect stylesheet" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <noscript>
-  <meta http-equiv="refresh" content="0;url=noscript"></meta>
+    <meta http-equiv="refresh" content="0;url=noscript">
+    </meta>
   </noscript>
-  </head>
-  <body data-bs-theme="dark">
-    <div class="main">
-      <h1 class="title">Commonly Asked Questions</h1>
-      <p class="txt">
-        <strong>1. How can I reset my master password?</strong>
-      </p>
-      <p class="txt">
-        <strong
-          >Warning: This <strong style="color: red">WILL</strong> erase all your
-          password data for security purposes.</strong
-        >
-        <br />
-        To reset your master password, simply remove the masterpassword file in
-        your specified OS's directory. Windows: %LOCALAPPDATA%/
-        <br />
-        Linux: ~\.config\
-        <br />
-        MacOS: ~\Libary\Application Support\
-      </p>
-    </div>
-    <script src="main.js" async defer></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+</head>
+
+<body data-bs-theme="dark">
+  <div class="main">
+    <h1 class="title">Commonly Asked Questions</h1>
+    <p class="txt">
+      <strong>1. How can I reset my master password?</strong>
+    </p>
+    <p class="txt">
+      <strong>Warning: This <strong style="color: red">WILL</strong> erase all your
+        password data for security purposes.</strong>
+      <br />
+      To reset your master password, simply remove the masterpassword file in
+      your specified OS's directory. Windows: %LOCALAPPDATA%/
+      <br />
+      Linux: ~\.config\
+      <br />
+      MacOS: ~\Libary\Application Support\
+    </p>
+    <p class="txt"><strong>2. What libaries were used to create the program?</strong></p>
+    <p class="txt">The main libaries used to create the program were Flet (a new GUI framework based off of the Flutter
+      Framework in Dart) & the Cryptography's Fernet method for symettric encryption & decryption.</p>
+    <p class="txt"><strong>URLS to <strong>external</strong> modules used (not included by default):</strong></p>
+    <p class="txt">1. <a href="https://flet.dev">Flet</a> <br> 2. <a
+        href="https://pypi.org/project/cryptography/">Cryptography</a><br>3. <a
+        href="https://pypi.org/project/pyperclip/">Pyperclip</a></p>
+    <p class="txt"><strong>3. Why did you make the program?</strong><br>Honestly, I just made it for fun, because I
+      wanted
+      to
+      learn & have something to do. You know, life is boring.</p>
+  </div>
+  <script src="main.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
