@@ -144,12 +144,6 @@ body::-webkit-scrollbar {
   margin-right: auto;
 }
 
-.link {
-  color: inherit;
-  font-size: inherit;
-  font-weight: bold;
-}
-
 .subheading {
   text-align: center;
   font-size: 28px;
